@@ -18,6 +18,9 @@
 
     <ul class="achievements">
       {{#each controller}}
+        <li>
+          <span>{{ date achievedAt }}</span> {{ title }}
+        </li>
       {{else}}
         <li>
           <h4>There are no achievements yet.</h4>
