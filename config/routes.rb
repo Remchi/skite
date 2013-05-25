@@ -1,5 +1,9 @@
 Skite::Application.routes.draw do
 
+  namespace :api do
+    resources :achievements
+  end
+
   root to: "application#index"
   # The priority is based upon order of creation:
   # first created -> highest priority.
