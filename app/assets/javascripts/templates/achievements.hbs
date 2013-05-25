@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="large-4 columns">Lists</div>
+  <div class="large-8 columns">
+    <form action="#">
+      <fieldset>
+        <legend>Skite Away!</legend>
+        <div class="row">
+          <div class="large-10 columns">
+            {{input type=text}}
+          </div>
+          <div class="large-2 columns"><button class="button small">Add</button></div>
+        </div>
+      </fieldset>
+    </form>
+
+    <h3>Achievements</h3>
+    <hr>
+
+    <ul class="achievements">
+      {{#each controller}}
+      {{else}}
+        <li>
+          <h4>There are no achievements yet.</h4>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+</div>
