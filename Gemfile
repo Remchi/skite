@@ -38,3 +38,5 @@ gem 'jquery-rails'
 # gem 'debugger'
 
 gem 'strong_parameters'
+
+gem 'unicorn'
