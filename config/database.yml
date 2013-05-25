@@ -17,7 +17,7 @@ development:
   encoding: unicode
   database: skite_development
   pool: 5
-  username: skite
+  username: remchi
   password:
 
   # Connect on a TCP socket. Omitted by default since the client uses a
@@ -43,7 +43,7 @@ test:
   encoding: unicode
   database: skite_test
   pool: 5
-  username: skite
+  username: remchi
   password:
 
 production:
