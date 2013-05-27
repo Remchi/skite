@@ -12,10 +12,11 @@ Skite.AchievementsNewController = Ember.Controller.extend
   input: ""
 
   errors: (->
-    if @get('isValid')
-      ""
-    else
-      @get('content.errors').title.join ' '
+    msg = ""
+    errors = @get('content.errors')
+    msg += errors.title.join(' ') if errors.title
+    msg += errors.achievedAt.join(' ') if errors.achievedAt
+    msg
   ).property('isValid')
 
   addAchievement: ->
