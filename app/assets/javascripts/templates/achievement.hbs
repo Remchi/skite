@@ -4,9 +4,13 @@
     <h3 class="subheader">{{date achievedAt}}</h3>
     <hr>
 
+    {{#if isDescription}}
     <div class="achievement-details">
+      <h3>Description</h3>
       {{{description}}}
+      <hr>
     </div>
+    {{/if}}
 
     {{#unless editDescription}}
     <a href="#" {{action showEditDescription}}>Add Description</a>
