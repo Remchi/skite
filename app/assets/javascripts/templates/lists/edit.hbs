@@ -1,0 +1,15 @@
+<form action="#">
+  <fieldset>
+    <legend>Create new list</legend>
+    <div class="large-8 columns">
+      {{input type=text value=title}}
+    </div>
+    <div class="large-2 columns">
+      {{input type=checkbox checked=public value=public}}
+      Public?
+    </div>
+    <div class="large-2 columns">
+      <button class="button" {{action save}}>Save</button>
+    </div>
+  </fieldset>
+</form>

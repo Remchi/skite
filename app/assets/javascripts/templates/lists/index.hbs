@@ -1,0 +1,28 @@
+<h1>Lists</h1>
+
+<table width="100%">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Public?</th>
+      <th>Actions</th>
+    </tr>
+    <tbody>
+      {{#each controller}}
+        <tr>
+          <td>{{title}}</td>
+          <td>{{yesNoBoolean public}}</td>
+          <td>
+            {{#linkTo lists.edit this}}Edit{{/linkTo}}
+            {{#unless isRoot}}
+              |
+              <a href="#" {{action delete this}}>Delete</a>
+            {{/unless}}
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </thead>
+</table>
+
+{{#linkTo lists.new}}Create new list{{/linkTo}}

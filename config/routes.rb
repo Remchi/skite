@@ -2,6 +2,7 @@ Skite::Application.routes.draw do
 
   namespace :api do
     resources :achievements
+    resources :lists
   end
 
   root to: "application#index"
