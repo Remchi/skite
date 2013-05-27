@@ -1,22 +1,16 @@
 <div class="row">
   <div class="large-4 columns">Lists</div>
   <div class="large-8 columns">
-    <form action="#">
-      <fieldset>
-        <legend>Skite Away!</legend>
-        <div class="row">
-          <div {{bindAttr class=":large-10 :columns isValid::error"}}>
-            {{input type=text value=newAchievement}}
-            {{#unless isValid}}
-              <small>{{errorMessage}}</small>
-            {{/unless}}
-          </div>
-          <div class="large-2 columns"><button class="button small" {{action addAchievement}}>Add</button></div>
-        </div>
-      </fieldset>
-    </form>
 
-    <h3>Achievements</h3>
+    {{ outlet }}
+
+
+    <div class="left">
+      <h3>Achievements</h3>
+    </div>
+    <div class="right">
+      {{#linkTo achievements.new}}<img src="/assets/plus.png">{{/linkTo}}
+    </div>
     <hr>
 
     <ul class="achievements">
