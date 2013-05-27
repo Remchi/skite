@@ -9,7 +9,7 @@ Skite.Achievement = DS.Model.extend
 
   save: ->
     @parseInput()
-    @get('store').commit() if @validate()
+    @get('transaction').commit() if @validate()
 
   validate: ->
     msg = { title: [] }

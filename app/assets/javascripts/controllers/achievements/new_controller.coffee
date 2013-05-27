@@ -26,6 +26,7 @@ Skite.AchievementsNewController = Ember.Controller.extend
       achievement.set('input', @get('input'))
     else
       achievement = Skite.Achievement.createRecord({ input: @get('input')})
+      @get('store').transaction().add(achievement)
 
     achievement.on 'didCreate', @, @resetProperties
 
