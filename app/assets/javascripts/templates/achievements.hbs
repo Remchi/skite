@@ -5,8 +5,11 @@
       <fieldset>
         <legend>Skite Away!</legend>
         <div class="row">
-          <div class="large-10 columns">
+          <div {{bindAttr class=":large-10 :columns isValid::error"}}>
             {{input type=text value=newAchievement}}
+            {{#unless isValid}}
+              <small>{{errorMessage}}</small>
+            {{/unless}}
           </div>
           <div class="large-2 columns"><button class="button small" {{action addAchievement}}>Add</button></div>
         </div>
