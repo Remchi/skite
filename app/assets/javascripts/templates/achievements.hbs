@@ -17,7 +17,8 @@
       {{#each controller}}
         {{#unless isDirty}}
         <li>
-          <span>{{ date achievedAt }}</span> {{ title }}
+          <span>{{ date achievedAt }}</span>
+          {{#linkTo achievement this}}{{ title }}{{/linkTo}}
         </li>
         {{/unless}}
       {{else}}

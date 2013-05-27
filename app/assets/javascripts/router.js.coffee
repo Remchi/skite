@@ -4,3 +4,5 @@ Skite.Router.map (match)->
   @resource 'achievements', ->
     @route 'new'
 
+  @resource 'achievement', { path: '/achievement/:achievement_id' }
+
