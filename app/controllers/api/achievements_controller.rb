@@ -10,6 +10,10 @@ module Api
       respond_with :api, Achievement.create(achievement_params)
     end
 
+    def show
+      respond_with Achievement.find(params[:id])
+    end
+
     private
 
     def achievement_params
