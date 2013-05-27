@@ -22,6 +22,12 @@ module Api
       render json: achievement
     end
 
+    def destroy
+      achievement = Achievement.find(params[:id])
+      achievement.delete
+      render json: nil
+    end
+
     private
 
     def achievement_params

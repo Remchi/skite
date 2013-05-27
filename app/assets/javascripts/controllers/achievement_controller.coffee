@@ -13,3 +13,7 @@ Skite.AchievementController = Ember.ObjectController.extend
   save: ->
     @hideEditDescription()
     @get('content.transaction').commit()
+
+  delete: ->
+    @get('content').deleteRecord()
+    @get('content.transaction').commit()

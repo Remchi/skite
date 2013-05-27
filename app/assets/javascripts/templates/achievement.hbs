@@ -14,6 +14,7 @@
 
     {{#unless editDescription}}
     <a href="#" {{action showEditDescription}}>Add Description</a>
+    <button class="button small alert right" {{action delete}}>Delete</button>
     {{/unless}}
 
     {{#if editDescription}}
