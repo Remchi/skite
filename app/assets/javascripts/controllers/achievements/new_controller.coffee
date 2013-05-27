@@ -4,11 +4,18 @@ Skite.AchievementsNewController = Ember.Controller.extend
     true
   ).property('newAchievement')
 
+  content: null
+  input: ""
+  errors: ""
+
   addAchievement: ->
-    data = @parseInput @get('newAchievement')
-    Skite.Achievement.createRecord
-      title: data['title']
-      achievedAt: data['achievedAt']
-    @set('newAchievement', '')
-    @get('store').commit()
+    achievement = @get('content')
+
+    if achievement
+      achievement.set('input', @get('input'))
+    else
+      achievement = Skite.Achievement.createRecord({ input: @get('input')})
+
+    achievement.save()
+    @set('content', achievement)
 

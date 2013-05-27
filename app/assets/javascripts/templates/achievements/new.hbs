@@ -3,9 +3,9 @@
     <legend>Skite Away!</legend>
     <div class="row">
       <div {{bindAttr class=":large-10 :columns isValid::error"}}>
-        {{input type=text value=newAchievement}}
+        {{input type=text value=input}}
         {{#unless isValid}}
-          <small>{{errorMessage}}</small>
+          <small>{{errors}}</small>
         {{/unless}}
       </div>
       <div class="large-2 columns"><button class="button small" {{action addAchievement}}>Add</button></div>

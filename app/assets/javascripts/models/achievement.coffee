@@ -4,6 +4,10 @@ Skite.Achievement = DS.Model.extend
   achievedAt: DS.attr 'date'
   input: DS.attr 'string'
 
+  save: ->
+    @parseInput()
+    @get('store').commit() if @validate()
+
   validate: ->
     msg = { title: [] }
     isValid = true
