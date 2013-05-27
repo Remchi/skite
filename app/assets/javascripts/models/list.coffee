@@ -5,6 +5,10 @@ Skite.List = DS.Model.extend
 
   achievements: DS.hasMany('Skite.Achievement')
 
+  achievementsCount: (->
+    @get('achievements.length')
+  ).property('achievements.@each')
+
   isRoot: (->
     if parseInt(@get('id')) is 1
       true
