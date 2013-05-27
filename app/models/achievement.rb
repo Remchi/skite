@@ -10,4 +10,6 @@ class Achievement < ActiveRecord::Base
   validates :title, presence: true
 
   validates_with InThePast
+
+  belongs_to :list
 end

@@ -7,6 +7,8 @@ Skite.Achievement = DS.Model.extend
   description: DS.attr 'string'
   descriptionSrc: DS.attr 'string'
 
+  list: DS.belongsTo('Skite.List')
+
   save: ->
     @parseInput()
     @get('transaction').commit() if @validate()
