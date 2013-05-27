@@ -21,6 +21,9 @@
         <li>
           <span>{{ date achievedAt }}</span>
           {{#linkTo achievement this}}{{ title }}{{/linkTo}}
+          <span>
+            ({{list.title}})
+          </span>
         </li>
         {{/unless}}
       {{else}}
