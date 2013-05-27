@@ -15,5 +15,8 @@ Skite.AchievementController = Ember.ObjectController.extend
     @get('content.transaction').commit()
 
   delete: ->
+    return unless confirm "Are you sure?"
+    @get('content').on 'didDelete', @, ->
+      @transitionToRoute 'achievements'
     @get('content').deleteRecord()
     @get('content.transaction').commit()
