@@ -17,7 +17,7 @@ module Api
     private
 
     def achievement_params
-      params.require(:achievement).permit(:title, :achieved_at)
+      params.require(:achievement).permit(:title, :achieved_at, :description_src)
     end
   end
 end
