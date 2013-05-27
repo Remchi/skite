@@ -14,6 +14,14 @@ module Api
       respond_with Achievement.find(params[:id])
     end
 
+    def update
+      achievement = Achievement.find(params[:id])
+      achievement.assign_attributes(achievement_params)
+      achievement.description = Kramdown::Document.new(achievement.description_src).to_html
+      achievement.save
+      render json: achievement
+    end
+
     private
 
     def achievement_params

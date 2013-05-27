@@ -16,10 +16,10 @@
     <div class="description-form row">
 
       <div class="large-10 columns">
-        {{textarea}}
+        {{textarea value=descriptionSrc}}
       </div>
       <div class="large-2 columns">
-        <button class="button small">Save</button>
+        <button class="button small" {{action save}}>Save</button>
         <button class="button tiny secondary" {{action hideEditDescription}}>Cancel</button>
       </div>
     </div>

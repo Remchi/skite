@@ -4,3 +4,7 @@ Skite.AchievementController = Ember.ObjectController.extend
 
   showEditDescription: -> @set('editDescription', true)
   hideEditDescription: -> @set('editDescription', false)
+
+  save: ->
+    @hideEditDescription()
+    @get('store').commit()

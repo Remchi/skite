@@ -66,6 +66,7 @@ GEM
       thor (>= 0.14, < 2.0)
     json (1.8.0)
     kgio (2.8.0)
+    kramdown (1.0.2)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -138,6 +139,7 @@ DEPENDENCIES
   ember-source (= 1.0.0.rc3.4)
   handlebars-source (= 1.0.0.rc4)
   jquery-rails
+  kramdown
   pg
   rails (= 3.2.13)
   sass-rails (~> 3.2.3)
