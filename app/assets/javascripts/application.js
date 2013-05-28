@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require cookie
 //= require moment
 //= require foundation
 //= require handlebars

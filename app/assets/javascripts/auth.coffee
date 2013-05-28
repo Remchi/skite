@@ -3,6 +3,18 @@
 Auth = Ember.Object.extend
   auth_token: null
 
+  init: ->
+    if $.cookie('remember_token')
+      promise = Ember.$.ajax '/users/sign_in',
+        type: "POST"
+        data:
+          remember_token: $.cookie('remember_token')
+        dataType: "JSON"
+        async: false
+
+      promise.then (response) =>
+        @set('auth_token', response.auth_token)
+
   signedIn: (->
     @get('auth_token')
   ).property('auth_token')
@@ -10,6 +22,8 @@ Auth = Ember.Object.extend
   signIn: (params) ->
     Ember.$.post('/users/sign_in', params).then (response) =>
       @set('auth_token', response.auth_token)
+      if response.remember_token
+        $.cookie('remember_token', response.remember_token, { expires: 1 })
 
   signOut: ->
     promise = Ember.$.ajax '/users/sign_out',
@@ -17,6 +31,7 @@ Auth = Ember.Object.extend
 
     promise.then =>
       @set('auth_token', null)
+      $.removeCookie('remember_token') if $.cookie('remember_token')
 
     promise
 

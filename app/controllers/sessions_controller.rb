@@ -1,19 +1,34 @@
 class SessionsController < Devise::SessionsController
   def create
-    unless params[:email] && params[:password]
-      return invalid_params('You need to provide both email and password')
+    unless (params[:email] && params[:password]) || (params[:remember_token])
+      return invalid_params("Credentials are wrong")
     end
 
-    res = User.find_for_database_authentication(email: params[:email])
-
-    if res && res.valid_password?(params[:password])
-      user = res
+    if params[:remember_token]
+      token = params[:remember_token]
+      id, identifier = token.split('-')
+      user = User.serialize_from_cookie(id, identifier)
+    else
+      res = User.find_for_database_authentication(email: params[:email])
+      if res && res.valid_password?(params[:password])
+        user = res
+      end
     end
 
-    return invalid_params('Credentials are wrong') unless user
+    return invalid_params("Credentials are wrong") unless user
 
     user.ensure_authentication_token!
-    render json: { auth_token: user.authentication_token }, status: 201
+
+    data = {
+      auth_token: user.authentication_token
+    }
+    if params[:remember] == 'true'
+      user.remember_me!
+      cookie = User.serialize_into_cookie(user)
+      data[:remember_token] = "#{cookie.first.first}-#{cookie.last}"
+    end
+
+    render json: data, status: 201
   end
 
   protected
