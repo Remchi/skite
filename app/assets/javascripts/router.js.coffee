@@ -11,3 +11,5 @@ Skite.Router.map (match)->
     @route 'new'
     @route 'edit', { path: '/edit/:list_id'}
     @route 'show', { path: '/:list_id' }
+
+  @route 'login'
