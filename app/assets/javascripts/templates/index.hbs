@@ -16,25 +16,14 @@
 
 <div class="row">
   <ul class="large-block-grid-3">
+    {{#each controller}}
     <li>
-      <h3 class="subheader" style="text-align:center;">2013</h3>
+      <h3 class="subheader" style="text-align:center;">{{title}}</h3>
       <hr>
-      <ul>
-        <li><small>05.01</small> Passed exam for driver license</li>
-        <li><small>25.01</small> Moved to better appartment</li>
-        <li><small>13.02</small> Opened my own business</li>
-        <li><small>01.04</small> Get married</li>
-        <li><small>04.05</small> Preped everything for the vacation abroad</li>
-      </ul>
+      {{view Skite.ListItemsView contentBinding="achievements"}}
     </li>
-    <li>
-      <h3 class="subheader" style="text-align:center;">Books</h3>
-      <hr>
-      <ul>
-        <li><small>27.10.12</small> Rails in Action</li>
-        <li><small>13.03.13</small> Game of Thrones</li>
-        <li><small>18.04.13</small> Object-oriented design</li>
-      </ul>
+    {{/each}}
+
     </li>
   </ul>
 </div>
