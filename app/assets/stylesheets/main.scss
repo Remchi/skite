@@ -11,3 +11,9 @@ ul.achievements {
     }
   }
 }
+
+ul.filters {
+  a.active {
+    color: red;
+  }
+}

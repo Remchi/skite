@@ -3,7 +3,8 @@
 <ul class="filters">
   {{#each controller}}
   <li>
-    {{title}} - <span class="round label">{{achievementsCount}}</span>
+    {{#linkTo list this}}{{title}}{{/linkTo}}
+     - <span class="round label">{{achievementsCount}}</span>
   </li>
   {{/each}}
 </ul>
