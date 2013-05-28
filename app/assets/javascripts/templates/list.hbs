@@ -1,0 +1,23 @@
+
+<div class="left">
+  <h3>Achievements</h3>
+</div>
+<div class="right">
+  {{#linkTo achievements.new}}<img src="/assets/plus.png">{{/linkTo}}
+</div>
+<hr>
+
+<ul class="achievements">
+  {{#each achievements}}
+    {{#unless isDirty}}
+    <li>
+      <span>{{ date achievedAt }}</span>
+      {{#linkTo achievement this}}{{ title }}{{/linkTo}}
+    </li>
+    {{/unless}}
+  {{else}}
+    <li>
+      <h4>There are no achievements yet.</h4>
+    </li>
+  {{/each}}
+</ul>
