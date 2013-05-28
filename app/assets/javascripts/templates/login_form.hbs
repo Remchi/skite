@@ -2,6 +2,12 @@
   <fieldset>
     <legend>Login</legend>
 
+    {{#if view.errorMessage}}
+    <div class="alert-box alert">
+      {{view.errorMessage}}
+    </div>
+    {{/if}}
+
     <label>Email:</label>
     {{input type=text value=view.email}}
 

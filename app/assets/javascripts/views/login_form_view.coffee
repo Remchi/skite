@@ -4,9 +4,15 @@ Skite.LoginFormView = Ember.View.extend
 
   email: null
   password: null
+  errorMessage: null
 
   submit: (event) ->
     event.preventDefault()
-    Skite.Auth.signIn
+    @set('errorMessage', null)
+    promise = Skite.Auth.signIn
       email: @get('email')
       password: @get('password')
+
+    promise.then => @get('controller').send('signedIn')
+    promise.fail (response) =>
+      @set('errorMessage', JSON.parse(response.responseText)['errorMessage'])
