@@ -1,6 +1,8 @@
 module Api
   class ListsController < ApplicationController
     respond_to :json
+    before_filter :auth_only
+
 
     def index
       respond_with List.find(:all)

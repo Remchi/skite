@@ -28,3 +28,5 @@ $.ajaxSetup
       encoded_auth_token = Base64.encode64(Skite.Auth.get('auth_token') + ":X")
       header = "Basic #{encoded_auth_token}"
       xhr.setRequestHeader('Authorization', header)
+  error: (xhr) ->
+    window.location = '/#/login' if xhr.status is 401

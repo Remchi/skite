@@ -1,6 +1,7 @@
 module Api
   class AchievementsController < ApplicationController
     respond_to :json
+    before_filter :auth_only
 
     def index
       respond_with Achievement.find(:all)

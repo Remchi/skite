@@ -1,5 +1,7 @@
 Skite.AchievementsRoute = Ember.Route.extend
 
+  redirect: -> @transitionTo('login') unless Skite.Auth.get('auth_token')
+
   model: -> Skite.Achievement.find()
 
   renderTemplate: (controller, model) ->
