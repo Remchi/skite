@@ -1,7 +1,11 @@
 #=require base64
 
-Skite.Auth = Ember.Object.create
+Auth = Ember.Object.extend
   auth_token: null
+
+  signedIn: (->
+    @get('auth_token')
+  ).property('auth_token')
 
   signIn: (params) ->
     Ember.$.post('/users/sign_in', params).then (response) =>
@@ -15,6 +19,8 @@ Skite.Auth = Ember.Object.create
       @set('auth_token', null)
 
     promise
+
+Skite.Auth = Auth.create()
 
 $.ajaxSetup
   beforeSend: (xhr, options) ->
