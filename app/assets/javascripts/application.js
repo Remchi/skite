@@ -18,6 +18,7 @@
 //= require ember
 //= require ember-data
 //= require_self
+//= require auth
 //= require skite
 
 Skite = Ember.Application.create();
