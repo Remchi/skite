@@ -7,6 +7,15 @@ Skite.Auth = Ember.Object.create
     Ember.$.post('/users/sign_in', params).then (response) =>
       @set('auth_token', response.auth_token)
 
+  signOut: ->
+    promise = Ember.$.ajax '/users/sign_out',
+      type: 'DELETE'
+
+    promise.then =>
+      @set('auth_token', null)
+
+    promise
+
 $.ajaxSetup
   beforeSend: (xhr, options) ->
     if Skite.Auth.get('auth_token')
