@@ -7,4 +7,6 @@ Skite.LoginFormView = Ember.View.extend
 
   submit: (event) ->
     event.preventDefault()
-    console.log "login"
+    Skite.Auth.signIn
+      email: @get('email')
+      password: @get('password')

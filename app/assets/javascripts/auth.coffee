@@ -3,6 +3,10 @@
 Skite.Auth = Ember.Object.create
   auth_token: null
 
+  signIn: (params) ->
+    Ember.$.post('/users/sign_in', params).then (response) =>
+      @set('auth_token', response.auth_token)
+
 $.ajaxSetup
   beforeSend: (xhr, options) ->
     if Skite.Auth.get('auth_token')
