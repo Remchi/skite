@@ -2,8 +2,8 @@ Skite.Router.map (match)->
   # match('/').to('index')
 
   @resource 'achievements', ->
-    @resource 'list', { path: '/list/:list_id' }
-    @route 'new'
+    @resource 'list', { path: '/list/:list_id' }, ->
+      @route 'new'
 
   @resource 'achievement', { path: '/achievement/:achievement_id' }
 

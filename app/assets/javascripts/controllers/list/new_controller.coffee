@@ -1,4 +1,5 @@
-Skite.AchievementsNewController = Ember.Controller.extend
+Skite.ListNewController = Ember.Controller.extend
+  needs: 'list'
 
   isValid: (->
     achievement = @get('content')
@@ -25,7 +26,9 @@ Skite.AchievementsNewController = Ember.Controller.extend
     if achievement
       achievement.set('input', @get('input'))
     else
-      achievement = Skite.Achievement.createRecord({ input: @get('input')})
+      achievement = Skite.Achievement.createRecord
+        input: @get('input')
+        list: @get('controllers.list.content')
       @get('store').transaction().add(achievement)
 
     achievement.on 'didCreate', @, @resetProperties
